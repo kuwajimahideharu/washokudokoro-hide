@@ -1,0 +1,542 @@
+:root {
+    --bg-color: #fcfaf2;
+    /* Washi paper color */
+    --text-color: #333333;
+    /* Sumi ink color */
+    --accent-color: #8E354A;
+    /* Deep engine red/purplish */
+    --font-serif: 'Noto Serif JP', serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-serif);
+    background-color: var(--bg-color);
+    background-image: url('images/washi_bg.png');
+    background-blend-mode: multiply;
+    background-size: 500px;
+    color: var(--text-color);
+    line-height: 2.0;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+/* Utilities */
+.tategaki {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: 0.1em;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+}
+
+.section {
+    padding: 5rem 0;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Header / Hero */
+header {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('images/top_bg_new.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hero Content Layout */
+.hero-logo-container {
+    position: absolute;
+    top: 35%;
+    /* Just below the shortened noren */
+    left: 10%;
+    z-index: 10;
+}
+
+.hero-catchphrase-container {
+    position: absolute;
+    bottom: 10%;
+    /* PC: Avoid overlapping button */
+    left: 40%;
+    /* PC: "Left side (slightly left of center)" */
+    transform: translateX(-50%);
+    z-index: 10;
+    text-align: center;
+    /* or left/right depending on tategaki preference */
+}
+
+h1.logo {
+    display: block;
+    /* Show it again */
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    /* Ensure visibility */
+    line-height: 1.3;
+}
+
+.logo-large {
+    font-size: 5rem;
+    color: var(--accent-color);
+    /* Use accent color */
+    display: block;
+    /* New line effect */
+    margin-top: 0.2em;
+}
+
+.hero-sub {
+    font-size: 2rem;
+    font-weight: 700;
+    display: inline-block;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 0.2em;
+}
+
+/* Hero Content Mobile Overlay & Alignment Defaults (Overridden in Media Query if needed, or set here) */
+/* Moving specific mobile styles to media query for cleaner separation, 
+   but ensuring base hero-content is adaptable. */
+
+/* Noren Animation */
+.noren-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 35%;
+    /* PC: Reduced height (was 60%) to show lantern top */
+    display: flex;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.noren-slice {
+    flex: 1;
+    background-color: #2b3a55;
+    /* Indigo blue */
+    transform-origin: top;
+    transition: transform 1.5s ease-out;
+}
+
+body.loaded .noren-slice {
+    transform: scaleY(0.2);
+}
+
+/* Removed previous Noren Text Styles as text was removed from HTML */
+
+/* Delay for each slice */
+.noren-slice:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.noren-slice:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.noren-slice:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.noren-slice:nth-child(4) {
+    transition-delay: 0.2s;
+}
+
+.noren-slice:nth-child(5) {
+    transition-delay: 0.1s;
+}
+
+
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Intro Section */
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.intro-text h2 {
+    font-size: 2rem;
+    margin-left: 2rem;
+    border-left: 3px solid var(--accent-color);
+    padding-left: 1rem;
+    height: fit-content;
+}
+
+.intro-text p {
+    font-size: 1.1rem;
+    height: 300px;
+    /* Adjust for text length */
+}
+
+.intro-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu Section */
+#menu .container {
+    display: flex;
+    flex-direction: column;
+    /* Changed to column to stack groups normally, no reverse unless using vertical-rl on container */
+    align-items: center;
+    /* Center aligns the menu block */
+    gap: 4rem;
+}
+
+.menu-list {
+    display: flex;
+    flex-direction: row;
+    /* Horizontal layout of groups (Lunch | Dinner) */
+    justify-content: center;
+    /* Center the groups */
+    gap: 4rem;
+    width: 100%;
+    writing-mode: horizontal-tb;
+    /* Reset container writing mode */
+}
+
+.menu-item-group {
+    /* Each group (Lunch/Dinner) maintains vertical text */
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    margin: 0;
+    /* Align to right */
+    /* Push to right */
+    margin-bottom: 4rem;
+    /* Spacing between Lunch and Dinner */
+    border-top: 1px solid var(--accent-color);
+    /* Separator on top instead of left */
+    border-left: none;
+    padding-top: 2rem;
+    padding-left: 0;
+    height: 400px;
+    /* Explicit height to ensure text fits without wrapping awkwardly */
+    width: auto;
+    /* Take full width to allow content to flow right-to-left inside */
+    display: flex;
+    flex-direction: column;
+    /* Items stack horizontally relative to vertical text flow? No, in vertical-rl, flex-direction column stacks R-to-L. */
+    flex-wrap: wrap;
+    align-items: flex-start;
+    /* Left align lines */
+}
+
+.menu-item-group h3 {
+    font-size: 2rem;
+    /* Slightly larger for impact */
+    margin-left: 1rem;
+    /* Spacing from the items */
+    margin-bottom: 0;
+    color: var(--accent-color);
+    width: auto;
+    height: 100%;
+}
+
+.menu-item-group ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    /* In vertical-rl, this stacks items Right-to-Left */
+    flex-wrap: wrap;
+    height: 100%;
+    /* Fill container height */
+    align-content: flex-start;
+}
+
+
+.menu-item-group li {
+    font-size: 1.1rem;
+    margin-left: 2rem;
+    /* Spacing between lines/columns */
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+    /* Prevent text wrapping/breaking */
+}
+
+.menu-item-group li span {
+    font-size: 0.9rem;
+    margin-top: 0.8em;
+    /* Spacing below item name in vertical text */
+    display: inline-block;
+    color: #666;
+}
+
+/* Access Section */
+.access-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.access-info dl {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1rem;
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+}
+
+.access-info dt {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.access-info dd {
+    margin-bottom: 1rem;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+}
+
+/* Footer / Reserve Button */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #2b3a55;
+    color: white;
+    position: relative;
+    padding-bottom: 5rem;
+    /* Space for fixed button on mobile */
+}
+
+.reserve-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    /* Mobile Hero: Left Align & Dark Overlay */
+    header {
+        justify-content: flex-start;
+        /* Align content to the left generally, but we need specific positioning */
+        padding-left: 0;
+        /* Reset */
+    }
+
+    /* Mobile Hero: Left Align & Dark Overlay */
+    header {
+        justify-content: flex-start;
+        padding-left: 0;
+    }
+
+    .hero-logo-container {
+        top: 25%;
+        left: 5%;
+    }
+
+    .hero-catchphrase-container {
+        /* Mobile: "Move further left to fit '心づくしの'" */
+        /* Currently positioned absolutely. */
+        left: auto;
+        right: 25%;
+        /* Pushing from right to ensure it fits on screen */
+        bottom: 25%;
+        /* Move up a bit to be safe from button */
+        transform: none;
+        /* Reset center transform */
+        text-align: right;
+    }
+
+    h1.logo {
+        font-size: 2rem;
+    }
+
+    .logo-large {
+        font-size: 3.5rem;
+    }
+
+    .hero-sub {
+        font-size: 1.5rem;
+        /* Slightly smaller for mobile if needed */
+    }
+
+    .noren-container {
+        height: 25%;
+        /* Reduced height for mobile too */
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-image {
+        order: -1;
+        /* Image first on mobile */
+    }
+
+    .intro-text {
+        height: auto;
+        /* Allow auto height */
+        margin: 0 auto;
+        padding: 2rem 0;
+    }
+
+    .noren-container {
+        height: 30%;
+    }
+
+    /* Mobile Menu: No horizontal scroll, switch to vertical stack */
+    #menu .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    #menu,
+    .menu-list {
+        writing-mode: horizontal-tb !important;
+        /* Force horizontal text flow for vertical stacking availability */
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        /* Ensure no horizontal overflow */
+    }
+
+    .menu-list {
+        flex-direction: column;
+        /* Stack groups vertically (Top to Bottom now due to horizontal-tb) */
+        padding-left: 0;
+        max-height: none;
+        /* Remove height constraint */
+        padding-bottom: 0;
+    }
+
+    .menu-item-group {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 2rem;
+        border-left: none;
+        /* Remove side border */
+        border-top: 1px solid #ccc;
+        /* Add top border for separation */
+        border-bottom: none;
+        padding-left: 0;
+        padding-top: 1rem;
+        /* writing-mode already handled by parent or inherited, but good to be safe */
+        height: auto;
+
+        /* Reset PC specific styles for Mobile */
+        writing-mode: horizontal-tb !important;
+        /* Back to horizontal for mobile list items */
+        margin-right: 0;
+        margin-left: 0;
+        display: block;
+        /* Standard block for mobile */
+    }
+
+    .menu-item-group h3 {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .menu-item-group ul {
+        flex-direction: column;
+        max-height: none;
+    }
+
+    .menu-item-group li {
+        margin-left: 0;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        /* justify price and name */
+        border-bottom: 1px dotted #eee;
+        padding-bottom: 0.5rem;
+    }
+
+    .menu-item-group li span {
+        margin-top: 0;
+    }
+
+    .access-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reserve-btn {
+        left: 20px;
+        right: 20px;
+        text-align: center;
+        bottom: 10px;
+    }
+}
