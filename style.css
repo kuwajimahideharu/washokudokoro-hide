@@ -112,6 +112,11 @@ h1.logo {
     display: block;
     /* New line effect */
     margin-top: 0.2em;
+    /* White glow for visibility + Dark shadow for depth */
+    text-shadow:
+        0 0 15px rgba(255, 255, 255, 0.6),
+        0 0 5px rgba(255, 255, 255, 0.4),
+        2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .hero-sub {
@@ -538,5 +543,141 @@ footer {
         right: 20px;
         text-align: center;
         bottom: 10px;
+    }
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(142, 53, 74, 0.9);
+    /* Accent color with slight transparency */
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.hamburger-menu:hover {
+    background-color: var(--accent-color);
+}
+
+.bar {
+    width: 24px;
+    height: 2px;
+    background-color: white;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Active State for Hamburger (X shape) */
+.hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Global Navigation Overlay */
+.global-nav {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(252, 250, 242, 0.98);
+    /* Base color opacity */
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.global-nav.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-list {
+    list-style: none;
+    height: 60%;
+    /* Occupy good vertical space */
+    display: flex;
+    flex-direction: column;
+    /* Vertical writing mode (vertical-rl) means flex-direction: column stacks items Right-to-Left (Block Axis) */
+    /* styling for tategaki list items */
+    gap: 3rem;
+    align-items: center;
+}
+
+/* Tategaki specific override for nav */
+.nav-list.tategaki {
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+.nav-list li {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin: 0 1.5rem;
+    /* Spacing */
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-list li a {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    /* Transiton all properties for smooth float */
+}
+
+.nav-list li a:hover {
+    color: var(--accent-color);
+    transform: scale(1.1) translateY(-2px);
+    /* Scale up and slight move up */
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Shadow for depth */
+}
+
+/* Removed Vertical line hover effect */
+.nav-list li a::after {
+    display: none;
+}
+
+.nav-reserve {
+    color: var(--accent-color) !important;
+}
+
+/* Mobile Adjustments for Menu */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .nav-list li {
+        font-size: 1.2rem;
+        margin: 0 1rem;
     }
 }
