@@ -676,8 +676,16 @@ footer {
         height: 45px;
     }
 
+    .nav-list {
+        gap: 1rem;
+        /* Reduce gap to fit all items */
+        height: 80vh;
+        /* Increase height for vertical text space */
+    }
+
     .nav-list li {
         font-size: 1.2rem;
-        margin: 0 1rem;
+        margin: 0 0.5rem;
+        /* Reduce visuals margin if any */
     }
 }
