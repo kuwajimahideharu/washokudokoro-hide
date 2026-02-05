@@ -6,11 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>和食処 秀（ひで）</title>
     <meta name="description" content="旬の食材を生かした、心温まる和食をご提供いたします。">
+    <!-- OGP -->
+    <meta property="og:title" content="和食処 秀（ひで）">
+    <meta property="og:description" content="旬の食材を生かした、心温まる和食をご提供いたします。">
+    <meta property="og:image" content="https://kuwajimahideharu.github.io/washokudokoro-hide/images/top_bg_new.png">
+    <meta property="og:url" content="https://kuwajimahideharu.github.io/washokudokoro-hide/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "和食処 秀",
+        "servesCuisine": "Japanese",
+        "address": {
+            "@type": "PostalAddress",
+            "postalCode": "100-0000",
+            "addressRegion": "東京都",
+            "addressLocality": "日本橋",
+            "streetAddress": "〇〇町一ー二ー三",
+            "addressCountry": "JP"
+        },
+        "telephone": "03-1234-5679",
+        "url": "https://kuwajimahideharu.github.io/washokudokoro-hide/",
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "11:30",
+                "closes": "14:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "17:30",
+                "closes": "22:00"
+            }
+        ],
+        "image": "https://kuwajimahideharu.github.io/washokudokoro-hide/images/top_bg_new.png"
+    }
+    </script>
 </head>
 
 <body>
@@ -50,7 +91,7 @@
             <li><a href="#intro">こだわり</a></li>
             <li><a href="#menu">お品書き</a></li>
             <li><a href="#access">店舗情報</a></li>
-            <li><a href="#" class="nav-reserve">ご予約</a></li>
+            <li><a href="tel:03-1234-5679" class="nav-reserve">ご予約</a></li>
         </ul>
     </nav>
 
@@ -70,7 +111,7 @@
                         </p>
                     </div>
                     <div class="intro-image fade-in-up delay-200">
-                        <img src="images/food_sample.png" alt="季節の料理">
+                        <img src="images/food_sample.png" alt="季節の料理" width="1024" height="1024">
                     </div>
                 </div>
             </div>
@@ -101,6 +142,23 @@
             </div>
         </section>
 
+        <section id="gallery">
+            <div class="container">
+                <h2 class="section-title fade-in-up">季節の彩り</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item fade-in-up">
+                        <img src="images/01.png" alt="季節の前菜盛り合わせ" width="1024" height="1024">
+                    </div>
+                    <div class="gallery-item fade-in-up delay-100">
+                        <img src="images/02.png" alt="懐石料理の椀物" width="1024" height="1024">
+                    </div>
+                    <div class="gallery-item fade-in-up delay-200">
+                        <img src="images/03.png" alt="和の甘味" width="1024" height="1024">
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="access" class="section">
             <div class="container">
                 <div class="access-grid">
@@ -121,9 +179,17 @@
                         </dl>
                     </div>
                     <div class="access-map fade-in-up delay-200">
-                        <!-- Placeholder for map -->
                         <div class="map-placeholder">
-                            <p>Google Maps Area</p>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.8281074481!2d139.7671!3d35.6812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277c49ba34ed38!2z5p2x5Lqs6aeF!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
+                                width="100%"
+                                height="300"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="和食処 秀 地図">
+                            </iframe>
                         </div>
                     </div>
                 </div>
@@ -132,10 +198,38 @@
     </main>
 
     <footer>
-        <div class="footer-content">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <p class="footer-logo">和食処 <span class="footer-logo-large">秀</span></p>
+                <p>心づくしのおもてなし</p>
+            </div>
+            <div class="footer-info">
+                <dl>
+                    <dt>住所</dt>
+                    <dd>〒100-0000<br>東京都日本橋〇〇町一ー二ー三</dd>
+                    <dt>電話</dt>
+                    <dd><a href="tel:03-1234-5679">03-1234-5679</a></dd>
+                    <dt>営業時間</dt>
+                    <dd>
+                        昼 11:30 〜 14:00<br>
+                        夜 17:30 〜 22:00
+                    </dd>
+                    <dt>定休日</dt>
+                    <dd>水曜日、第三木曜日</dd>
+                </dl>
+            </div>
+            <div class="footer-social">
+                <p>Follow Us</p>
+                <div class="footer-sns">
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="LINE">LINE</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
             <p>&copy; 2026 Washokudokoro Hide.</p>
         </div>
-        <a href="#" class="reserve-btn">ご予約はこちら</a>
+        <a href="tel:03-1234-5679" class="reserve-btn">ご予約はこちら</a>
     </footer>
 
     <script src="script.js"></script>
