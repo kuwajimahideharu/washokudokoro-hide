@@ -387,6 +387,74 @@ footer {
     font-size: 1.1rem;
 }
 
+/* Footer Grid Layout */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: left;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.footer-logo .footer-logo-large {
+    color: var(--accent-color);
+    font-size: 2rem;
+}
+
+.footer-info dt {
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    margin-top: 0.8rem;
+}
+
+.footer-info dd {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-sns {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.footer-sns a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    font-size: 0.75rem;
+    color: white;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.footer-sns a:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    opacity: 1;
+}
+
+.footer-copyright {
+    text-align: center;
+    padding: 1rem 2rem;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
 
@@ -552,6 +620,7 @@ footer {
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
+        padding: 1rem 0.5rem;
     }
 
     .footer-sns {
@@ -617,74 +686,6 @@ footer {
     align-items: center;
     color: #aaa;
     font-size: 0.9rem;
-}
-
-/* Footer Grid Layout */
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: left;
-}
-
-.footer-logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-.footer-logo .footer-logo-large {
-    color: var(--accent-color);
-    font-size: 2rem;
-}
-
-.footer-info dt {
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.85rem;
-    margin-top: 0.8rem;
-}
-
-.footer-info dd {
-    margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.6;
-}
-
-.footer-sns {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 1rem;
-}
-
-.footer-sns a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 50%;
-    font-size: 0.75rem;
-    color: white;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.footer-sns a:hover {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-    opacity: 1;
-}
-
-.footer-copyright {
-    text-align: center;
-    padding: 1rem 2rem;
-    font-size: 0.8rem;
-    opacity: 0.7;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Hamburger Menu */
